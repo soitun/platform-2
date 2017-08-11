@@ -28,7 +28,7 @@ const npm = require('../services/npm');
 const reactNativeCli = path.join('node_modules', 'react-native', 'local-cli', 'cli.js');
 
 function rewritePackagerDefaultsJs() {
-  const defaultsJsPath = path.join('node_modules', 'react-native', 'packager', 'defaults.js');
+  const defaultsJsPath = path.join('node_modules', 'metro-bundler', 'src', 'defaults.js');
   const PACKAGER_DEFAULTS_JS_PATH = path.resolve(defaultsJsPath);
   const defaultsReplacePlaceholder = 'exports.providesModuleNodeModules = [';
   const defaultsContent = fs.readFileSync(PACKAGER_DEFAULTS_JS_PATH, 'utf8');

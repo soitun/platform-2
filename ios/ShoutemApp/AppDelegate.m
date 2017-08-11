@@ -13,8 +13,8 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
-#import "RCTBundleURLProvider.h"
-#import "RCTRootView.h"
+#import <React/RCTBundleURLProvider.h>
+#import <React/RCTRootView.h>
 #import "SplashScreen.h"
 
 @implementation AppDelegate
@@ -41,7 +41,7 @@
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"ShoutemApp"
-                                               initialProperties: initialProperties
+                                               initialProperties:initialProperties
                                                    launchOptions:launchOptions];
   rootView.backgroundColor = [UIColor clearColor];
 
@@ -52,7 +52,7 @@
   [self.window makeKeyAndVisible];
 
   [[FBSDKApplicationDelegate sharedInstance] application:application
-                           didFinishLaunchingWithOptions:launchOptions];
+                          didFinishLaunchingWithOptions:launchOptions];
 
   [SplashScreen show];
 

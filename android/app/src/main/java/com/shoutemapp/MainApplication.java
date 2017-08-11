@@ -9,6 +9,7 @@ import com.airbnb.android.react.maps.MapsPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
+import com.facebook.soloader.SoLoader;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
@@ -19,7 +20,7 @@ import java.util.List;
 
 public class MainApplication extends MultiDexApplication implements ReactApplication {
 
-  private static CallbackManager mCallbackManager = CallbackManager.Factory.create();
+private static CallbackManager mCallbackManager = CallbackManager.Factory.create();
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
 
@@ -47,7 +48,7 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
 
   @Override
   public ReactNativeHost getReactNativeHost() {
-      return mReactNativeHost;
+    return mReactNativeHost;
   }
 
   protected static CallbackManager getCallbackManager() {
@@ -57,6 +58,7 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
   @Override
   public void onCreate() {
     super.onCreate();
+    SoLoader.init(this, /* native exopackage */ false);
     FacebookSdk.sdkInitialize(getApplicationContext());
   }
 }
