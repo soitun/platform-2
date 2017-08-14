@@ -27,16 +27,6 @@ const npm = require('../services/npm');
 
 const reactNativeCli = path.join('node_modules', 'react-native', 'local-cli', 'cli.js');
 
-function rewritePackagerDefaultsJs() {
-  const defaultsJsPath = path.join('node_modules', 'metro-bundler', 'src', 'defaults.js');
-  const PACKAGER_DEFAULTS_JS_PATH = path.resolve(defaultsJsPath);
-  const defaultsReplacePlaceholder = 'exports.providesModuleNodeModules = [';
-  const defaultsContent = fs.readFileSync(PACKAGER_DEFAULTS_JS_PATH, 'utf8');
-  const nodeModules = `${defaultsReplacePlaceholder}\n  '.*',`;
-  const rewrittenDefaultsContent = defaultsContent.replace(defaultsReplacePlaceholder, nodeModules);
-  fs.writeFileSync(PACKAGER_DEFAULTS_JS_PATH, rewrittenDefaultsContent, 'utf8');
-}
-
 /**
  * AppConfigurator configure application for running other steps (app bundling, run or build)
  * It installs extensions and adds native dependencies and static assets to main project
@@ -212,10 +202,6 @@ class AppConfigurator {
     return this.prepareConfiguration()
       .then(() => this.buildExtensions())
       .then(() => this.linkPackages())
-      .then(() => {
-        rewritePackagerDefaultsJs();
-        console.timeEnd('Build time'.bold.green);
-      })
       .then(() => applyReactNativeFixes())
       .catch((e) => {
         console.log(e);
