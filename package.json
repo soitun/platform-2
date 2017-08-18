@@ -29,7 +29,7 @@
     "react-native-browser-polyfill": "^0.1.1",
     "react-native-calendar-manager": "git+https://git@bitbucket.org/fiveminutes/react-native-calendar-manager.git#v1.0.6",
     "react-native-code-push": "5.0.0-beta",
-    "react-native-fbsdk": "koenpunt/react-native-fbsdk#fix-project-for-link",
+    "react-native-fbsdk": "0.6.1",
     "react-native-google-analytics-bridge": "5.2.2",
     "react-native-restart": "0.0.3",
     "react-native-maps": "0.16.0",
