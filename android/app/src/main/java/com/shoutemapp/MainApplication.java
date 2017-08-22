@@ -6,7 +6,6 @@ import com.facebook.react.ReactApplication;
 import com.brentvatne.react.ReactVideoPackage;
 import com.cboy.rn.splashscreen.SplashScreenReactPackage;
 import com.avishayil.rnrestart.ReactNativeRestartPackage;
-import com.shoutem.calendar.CalendarManagerPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.reactnative.photoview.PhotoViewPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
@@ -49,7 +48,6 @@ private static CallbackManager mCallbackManager = CallbackManager.Factory.create
             new ReactVideoPackage(),
             new SplashScreenReactPackage(),
             new ReactNativeRestartPackage(),
-            new CalendarManagerPackage(),
             new ImagePickerPackage(),
             new PhotoViewPackage(),
             new LinearGradientPackage(),
