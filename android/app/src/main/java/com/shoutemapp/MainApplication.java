@@ -3,6 +3,14 @@ package com.shoutemapp;
 import android.support.multidex.MultiDexApplication;
 
 import com.facebook.react.ReactApplication;
+import com.brentvatne.react.ReactVideoPackage;
+import com.cboy.rn.splashscreen.SplashScreenReactPackage;
+import com.avishayil.rnrestart.ReactNativeRestartPackage;
+import com.shoutem.calendar.CalendarManagerPackage;
+import com.imagepicker.ImagePickerPackage;
+import com.reactnative.photoview.PhotoViewPackage;
+import com.BV.LinearGradient.LinearGradientPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.microsoft.codepush.react.CodePush;
 import com.idehub.GoogleAnalyticsBridge.GoogleAnalyticsBridgePackage;
 import com.airbnb.android.react.maps.MapsPackage;
@@ -38,6 +46,14 @@ private static CallbackManager mCallbackManager = CallbackManager.Factory.create
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactVideoPackage(),
+            new SplashScreenReactPackage(),
+            new ReactNativeRestartPackage(),
+            new CalendarManagerPackage(),
+            new ImagePickerPackage(),
+            new PhotoViewPackage(),
+            new LinearGradientPackage(),
+            new VectorIconsPackage(),
           new CodePush(null, getApplicationContext(), BuildConfig.DEBUG),
           new MapsPackage(),
           new GoogleAnalyticsBridgePackage(),

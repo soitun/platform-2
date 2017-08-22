@@ -18,9 +18,9 @@ function addDependencyToPackageJson(packageJson, name, version) {
   packageJson.dependencies[name] = version;
 }
 
-function npmInstall() {
+function installJsDependencies() {
   console.log('Installing dependencies:'.bold);
-  return spawn('npm', ['install'], { stderr: 'inherit', stdio: 'inherit' });
+  return spawn('yarn', ['install'], { stderr: 'inherit', stdio: 'inherit' });
 }
 
 function installNpmExtension(extension) {
@@ -73,7 +73,7 @@ class ExtensionsInstaller {
     ];
     return writePackageJson(packageJsonTemplate)
       .then(() => linkLocal(process.cwd()))
-      .then(() => npmInstall())
+      .then(() => installJsDependencies())
       .then(() =>
         Promise.resolve(installedExtensions)
       );

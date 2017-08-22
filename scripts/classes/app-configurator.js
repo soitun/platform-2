@@ -105,7 +105,9 @@ class AppConfigurator {
 
         if (!this.buildConfig.skipNativeDependencies) {
           installNativeDependencies = installer.installNativeDependencies(installedExts)
-            .then(() => this.runReactNativeLink())
+            .then(() => Promise.all(
+                _.map(installedExts, (ext) => this.runReactNativeLink(ext.id, 'sync'))
+            ))
             .then(() => {
               const appBinaryConfigurator = new AppBinaryConfigurator(this.buildConfig);
               return appBinaryConfigurator.configureApp();
